@@ -27,5 +27,14 @@ class CategorySeeder extends Seeder
             "name" => "Personal",
             "slug" => "personal"
         ]);
+
+        Category::create([
+            "name" => "School",
+            "slug" => "school"
+        ]);
+        Category::create([
+            "name" => "Games",
+            "slug" => "games"
+        ]);
     }
 }
