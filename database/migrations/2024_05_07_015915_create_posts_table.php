@@ -12,11 +12,12 @@ return new class extends Migration {
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->unique();
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('id_category');
-            $table->foreign('id_category')->references('id')->on('categories');
+            $table->foreign('id_category')->references('id')->on('categories')->cascadeOnDelete();
             $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_user')->references('id')->on('users')->cascadeOnDelete();
             $table->string('slug')->unique();
             $table->text('excerpt');
             $table->text('body');
